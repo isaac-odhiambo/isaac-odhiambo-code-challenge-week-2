@@ -1,53 +1,68 @@
 document.addEventListener('DOMContentLoaded', function() {
     const addItemForm = document.getElementById('addItemForm');
     const itemList = document.getElementById('itemList');
-    const addItemBtn = document.getElementById('addItemBtn');
-    const markPurchasedBtn = document.getElementById('markPurchasedBtn');
     const clearListBtn = document.getElementById('clearListBtn');
-    
+    const itemNameInput = document.getElementById('itemName');
+
+    let items = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
+    // Load existing items from local storage
+    items.forEach(item => {
+        addItemToDOM(item);
+    });
+
+    // Event listener for adding items
     addItemForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
-        
-        // Get the value from the input field
-        const itemNameInput = document.getElementById('itemName');
-        const itemName = itemNameInput.value.trim(); // Trim to remove leading/trailing whitespace
-        
+
+        const itemName = itemNameInput.value.trim();
         if (itemName === '') {
             alert('Please enter an item name.');
             return;
         }
-        
-        // Create a new list item element
+
+        const item = { name: itemName, purchased: false };
+        items.push(item);
+        addItemToDOM(item);
+        saveToLocalStorage();
+        itemNameInput.value = ''; // Clear the input field
+    });
+
+    // Event listener for clearing the list
+    clearListBtn.addEventListener('click', function() {
+        items = []; // Clear the array
+        itemList.innerHTML = ''; // Clear the displayed list
+        localStorage.removeItem('shoppingList'); // Remove from local storage
+    });
+
+    // Function to add items to the DOM
+    function addItemToDOM(item) {
         const newItem = document.createElement('li');
         newItem.classList.add('item');
-        
-        // Create span for item name
+
         const itemNameSpan = document.createElement('span');
-        itemNameSpan.textContent = itemName;
+        itemNameSpan.classList.add('name');
+        itemNameSpan.textContent = item.name;
         newItem.appendChild(itemNameSpan);
-        
-        // Create button for marking item as purchased
+
+        // Button to mark item as purchased
         const markPurchasedBtn = document.createElement('button');
         markPurchasedBtn.textContent = 'Mark Purchased';
         markPurchasedBtn.classList.add('mark-btn');
-        
+
         markPurchasedBtn.addEventListener('click', function() {
-            // Toggle the purchased class on the list item
-            newItem.classList.toggle('purchased');
+            item.purchased = !item.purchased; // Toggle purchased status
+            newItem.classList.toggle('purchased'); // Update visual state
+            markPurchasedBtn.textContent = item.purchased ? 'Unmark' : 'Mark Purchased';
+            saveToLocalStorage(); // Save changes to local storage
         });
-        
-        // Append the button to the list item
+
         newItem.appendChild(markPurchasedBtn);
-        
-        // Append the new item to the list
-        itemList.appendChild(newItem);
-        
-        // Clear the input field
-        itemNameInput.value = '';
-    });
-    
-    clearListBtn.addEventListener('click', function() {
-        // Remove all items from the list
-        itemList.innerHTML = '';
-    });
+        itemList.appendChild(newItem); // Append the new item to the list
+    }
+
+    // Function to save items to local storage
+    function saveToLocalStorage() {
+        localStorage.setItem('shoppingList', JSON.stringify(items));
+    }
 });
