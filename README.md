@@ -33,4 +33,6 @@ Feel free to fork the repository, make changes, and submit a pull request!
 
 # License
 This project is open-source and available under the MIT License.
+click the link below to view the page
+ https://isaac-odhiambo.github.io/isaac-odhiambo-code-challenge-week-2/
 
