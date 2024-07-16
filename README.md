@@ -1,52 +1,36 @@
 # isaac-odhiambo-code-challenge-week-2
-<<<<<<< HEAD
+
 # Shopping List Application
-# Overview
-This project implements an interactive shopping list application using HTML, CSS, and JavaScript. Users can add items to the list, mark them as purchased, and clear the entire list. This challenge focuses on array iteration, DOM manipulation, and event handling.
+This is a simple web-based shopping list application that allows users to add items, mark them as purchased, edit existing items, and clear the list. The application uses local storage to persist the list even after the page is reloaded.
 
-# Objective
-Develop a webpage that allows users to manage their shopping list efficiently by performing the following actions:
+# Features
+Add Items: Enter an item in the input field and click "Add" to include it in your shopping list.
+Mark Items: Click the "Mark" button next to each item to toggle its purchased status.
+Edit Items: Double-click on any item to edit its text.
+Clear List: Click the "Clear List" button to remove all items from the shopping list.
+Persistence: The shopping list is saved in the browser's local storage, so it remains available after a page refresh.
+# Technologies Used
+HTML
+CSS
+JavaScript
+# Installation
+Clone the repository or download the files.
+Open index.html in your web browser.
+# Usage
+Add an item by typing into the input field and clicking "Add."
+To mark an item as purchased, click the "Mark" button next to the item.
+To edit an item, double-click on it.
+To clear the entire list, click the "Clear List" button.
+# Code Structure
+index.html: Contains the HTML structure of the application.
+script.js: Handles the functionality of the shopping list.
+style: Basic CSS styles for the application.
+Example
+Here's how the shopping list application looks:
 
-Add items to the list
-Mark items as purchased
-Clear the entire list
+# Contributing
+Feel free to fork the repository, make changes, and submit a pull request!
 
-# requirements
-Features
-Array Management:
+# License
+This project is open-source and available under the MIT License.
 
-# Use a JavaScript array to store shopping list items.
-DOM Manipulation:
-
-Create an HTML structure with:
-An input field for adding new items
-A list container to display items
-Buttons for "Add", "Mark Purchased", and "Clear List"
-# JavaScript Functionality:
-
-Dynamically add new items to the list container when the user clicks the "Add" button.
-Visually indicate purchased items (e.g., strikethrough text or different background color).
-# Event Handling
-Attach an event listener to the "Add" button to capture user input and add items to the list.
-Attach event listeners to each list item to allow users to mark them as purchased.
-Attach an event listener to the "Clear List" button to remove all items from the list.
-# this is the link for the challenge
-https://isaac-odhiambo.github.io/isaac-odhiambo-code-challenge-week-2/
-=======
-Interactive Shopping List
-Overview
-The Interactive Shopping List project creates an application that allows users to manage their shopping lists through array iteration, DOM manipulation, and event handling.
-
-Features
-Add items to the shopping list.
-Mark items as purchased.
-Clear the entire list.
-Edit existing items.
-Local storage to persist the shopping list even after page reloads.
-Learning Outcomes
-Practice iterating through an array to access and manipulate list items.
-Gain experience in dynamically modifying the DOM based on user interaction.
-Reinforce understanding of event listeners in interactive applications.
-
-https://isaac-odhiambo.github.io/isaac-odhiambo-code-challenge-week-2/
->>>>>>> 1c1890e90e823b5d04432cd4149640f18daef830
